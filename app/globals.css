@@ -1,0 +1,359 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Retargeting Landing Page — editorial theme
+   Recreated to match the scorecard-funnel "marine" landing-minimal system:
+   Fraunces serif headlines, Inter body. The page is locked to the marine
+   palette — a deep teal canvas (#0f2c3b) with soft blue-grey body text,
+   near-white ink headings, and a bright cyan signal accent. Values below are
+   taken verbatim from the reference globals.css.
+--------------------------------------------------------------------------- */
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, "Times New Roman",
+    serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-signal: var(--signal);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --background: #fafaf9;
+  --foreground: #0c0a09;
+  --card: #ffffff;
+  --card-foreground: #0c0a09;
+  --primary: #2d1b9e;
+  --primary-foreground: #ffffff;
+  --secondary: #f0edff;
+  --secondary-foreground: #0c0a09;
+  --muted: #f5f3ff;
+  --muted-foreground: #57534e;
+  --accent: #e8e4ff;
+  --accent-foreground: #0c0a09;
+  --border: #e7e5e4;
+  --input: #d6d3d1;
+  --ring: #2d1b9e;
+
+  /* palette defaults (overridden by [data-palette]) */
+  --ink: #0c0a09;
+  --signal: #2d1b9e;
+  --glow: 45 27 158;
+  --shadow-ink: 12, 10, 9;
+}
+
+/*
+   Marine — the palette locked across the whole landing page (reference values).
+   This deliberately overrides background/foreground so the page renders as a
+   deep-teal editorial theme, not the light default above.
+*/
+[data-palette="marine"] {
+  --background: #0f2c3b;
+  --foreground: #a8c4d0;
+  --ink: #eaf0f4;
+  --card: #163a4d;
+  --card-foreground: #eaf0f4;
+  --primary: #eaf0f4;
+  --primary-foreground: #0f2c3b;
+  --secondary: #194254;
+  --secondary-foreground: #eaf0f4;
+  --muted: #1d4960;
+  --muted-foreground: #95b5c4;
+  --accent: #2a6b85;
+  --accent-foreground: #eaf0f4;
+  --border: #245a73;
+  --input: #2c6b87;
+  --ring: #eaf0f4;
+  --signal: #5fc5d4;
+  --glow: 95 197 212;
+  --shadow-ink: 5, 18, 26;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* clip decorative glows/halos so they never create horizontal scroll */
+  overflow-x: hidden;
+}
+
+/* -------- typographic helpers ------------------------------------------- */
+/* Fraunces renders at normal (400) weight for the reference's editorial cut —
+   headings inherit browser-bold otherwise, so pin the weight explicitly. */
+.font-serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-optical-sizing: auto;
+}
+.font-serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-optical-sizing: auto;
+}
+.text-ink {
+  color: var(--ink);
+}
+.text-signal {
+  color: var(--signal);
+}
+.bg-ink {
+  background-color: var(--ink);
+}
+
+/* brand wordmark — the reference logo painted with the current ink color via
+   a CSS mask, so it adapts to the palette (near-white on the teal theme). */
+.brand-mark {
+  display: inline-block;
+  width: 128px;
+  aspect-ratio: 1274 / 179;
+  background-color: var(--ink);
+  -webkit-mask: url("/newui-logo.png") center / contain no-repeat;
+  mask: url("/newui-logo.png") center / contain no-repeat;
+  flex-shrink: 0;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+}
+.brand-mark-sm {
+  width: 108px;
+}
+.group:hover .brand-mark {
+  opacity: 0.82;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* pulsing signal dot used in eyebrows */
+.pulse-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--signal);
+  box-shadow: 0 0 0 0 rgb(var(--glow) / 0.5);
+  animation: pulse-dot 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgb(var(--glow) / 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 9px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+/* -------- hairline rules ------------------------------------------------- */
+.hairline {
+  height: 1px;
+  width: 100%;
+  background: var(--border);
+}
+.hairline-anim {
+  transform-origin: left center;
+  animation: hairline-grow 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes hairline-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.underline-draw {
+  background-image: linear-gradient(var(--signal), var(--signal));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1.5px;
+  transition: background-size 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.underline-draw:hover {
+  background-size: 100% 1.5px;
+}
+
+/* -------- buttons -------------------------------------------------------- */
+.s-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.9rem 1.6rem;
+  border-radius: 9999px;
+  background: var(--ink);
+  color: var(--background);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid var(--ink);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+.s-btn:hover {
+  background: transparent;
+  color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -12px rgba(var(--shadow-ink), 0.55);
+}
+.s-btn:active {
+  transform: translateY(0);
+}
+.s-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(var(--glow) / 0.5);
+}
+
+.s-btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: color-mix(in srgb, var(--ink) 30%, transparent);
+}
+.s-btn-ghost:hover {
+  background: var(--ink);
+  color: var(--background);
+}
+
+/* -------- surfaces ------------------------------------------------------- */
+.s-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--background) 60%, transparent);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.s-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px -20px rgba(var(--shadow-ink), 0.6);
+}
+
+.signal-halo::before {
+  content: "";
+  position: absolute;
+  inset: -14%;
+  border-radius: 9999px;
+  background: radial-gradient(
+    closest-side,
+    rgb(var(--glow) / 0.28),
+    transparent 72%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* placeholder image surface (stands in for real photography) */
+.img-placeholder {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--signal) 22%, var(--background)) 0%,
+    color-mix(in srgb, var(--ink) 10%, var(--background)) 100%
+  );
+}
+.img-placeholder::after {
+  content: attr(data-label);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--ink) 55%, transparent);
+}
+
+/* -------- reveal / motion ----------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+}
+.reveal.is-in {
+  animation: reveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.word-reveal > span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.5em);
+  animation: word-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes word-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .word-reveal > span {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.wrap-break-word {
+  overflow-wrap: break-word;
+}
