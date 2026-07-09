@@ -29,7 +29,7 @@ export function MinimalFooter() {
             <span className="brand-mark !w-[140px]" aria-hidden />
             <span className="sr-only">Home</span>
             <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-foreground/70">
-              A precise reflection of what is quietly running you — so the next
+              A precise reflection of what is quietly running you - so the next
               decision can come from somewhere calmer.
             </p>
           </div>

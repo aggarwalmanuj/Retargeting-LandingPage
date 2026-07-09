@@ -1,6 +1,6 @@
 import { Reveal } from "./motion"
 
-/** II — The honest reminder. Generic on purpose; never names the source. */
+/** II - The honest reminder. Generic on purpose; never names the source. */
 export function ReminderSection() {
   return (
     <section className="relative" id="reminder">

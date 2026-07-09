@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react"
 export const FUNNEL_HREF = "/diagnostic"
 
 /**
- * PrimaryCta — the retargeting call to action. Same button + honest sub-line
+ * PrimaryCta - the retargeting call to action. Same button + honest sub-line
  * everywhere it appears, so the promise stays consistent down the page.
  */
 export function PrimaryCta({
@@ -26,7 +26,7 @@ export function PrimaryCta({
       </a>
       {showSubline && (
         <p className="mt-4 max-w-md text-[0.82rem] leading-relaxed text-foreground/65">
-          Takes about two minutes. Answer honestly — the more truthful you are,
+          Takes about two minutes. Answer honestly - the more truthful you are,
           the more accurate your reflection.
         </p>
       )}

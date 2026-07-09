@@ -62,7 +62,7 @@ export function MinimalHero() {
               <div className="relative h-80 w-full overflow-hidden rounded-sm sm:h-[26rem] lg:h-[34rem]">
                 <Image
                   src="/images/hero.jpg"
-                  alt="A person in a quiet, reflective moment, looking out a window — the stillness the diagnostic is meant to compose"
+                  alt="A person in a quiet, reflective moment, looking out a window - the stillness the diagnostic is meant to compose"
                   fill
                   sizes="(max-width: 1024px) 100vw, 45vw"
                   className="object-cover object-center"

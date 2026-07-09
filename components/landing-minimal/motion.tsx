@@ -10,7 +10,7 @@ import {
 } from "react"
 
 /**
- * Reveal — fades + lifts its children into view on scroll, mirroring the
+ * Reveal - fades + lifts its children into view on scroll, mirroring the
  * reference's editorial "reveal" timing. Honors prefers-reduced-motion via CSS.
  */
 export function Reveal({
@@ -60,7 +60,7 @@ type Segment =
   | { kind: "br" }
 
 /**
- * WordReveal — staggers each word upward. Accepts mixed text / italic / break
+ * WordReveal - staggers each word upward. Accepts mixed text / italic / break
  * segments so a headline can carry an emphasized second line.
  */
 export function WordReveal({ segments }: { segments: readonly Segment[] }) {

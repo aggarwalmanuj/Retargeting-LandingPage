@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   Retargeting Landing Page — editorial theme
+   Retargeting Landing Page - editorial theme
    Recreated to match the scorecard-funnel "marine" landing-minimal system:
    Fraunces serif headlines, Inter body. The page is locked to the marine
-   palette — a deep teal canvas (#0f2c3b) with soft blue-grey body text,
+   palette - a deep teal canvas (#0f2c3b) with soft blue-grey body text,
    near-white ink headings, and a bright cyan signal accent. Values below are
    taken verbatim from the reference globals.css.
 --------------------------------------------------------------------------- */
@@ -63,7 +63,7 @@
 }
 
 /*
-   Marine — the palette locked across the whole landing page (reference values).
+   Marine - the palette locked across the whole landing page (reference values).
    This deliberately overrides background/foreground so the page renders as a
    deep-teal editorial theme, not the light default above.
 */
@@ -108,7 +108,7 @@ body {
 }
 
 /* -------- typographic helpers ------------------------------------------- */
-/* Fraunces renders at normal (400) weight for the reference's editorial cut —
+/* Fraunces renders at normal (400) weight for the reference's editorial cut;
    headings inherit browser-bold otherwise, so pin the weight explicitly. */
 .font-serif {
   font-family: var(--font-serif);
@@ -131,7 +131,7 @@ body {
   background-color: var(--ink);
 }
 
-/* brand wordmark — the reference logo painted with the current ink color via
+/* brand wordmark - the reference logo painted with the current ink color via
    a CSS mask, so it adapts to the palette (near-white on the teal theme). */
 .brand-mark {
   display: inline-block;

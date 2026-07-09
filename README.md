@@ -1,6 +1,6 @@
 # Retargeting Landing Page
 
-A dedicated landing page for the retargeting audience — visitors who came through
+A dedicated landing page for the retargeting audience - visitors who came through
 either gateway and left without completing the diagnostic or buying. The copy
 stays generic (never names the source) and routes back into the diagnostic
 funnel with the readiness gate.
@@ -50,7 +50,7 @@ public/newui-logo.png        # brand wordmark (CSS-masked)
 
 ## Configuration
 
-- **CTA destination** — set `FUNNEL_HREF` in `components/landing-minimal/cta.tsx`
+- **CTA destination** - set `FUNNEL_HREF` in `components/landing-minimal/cta.tsx`
   (currently `/diagnostic`) to the real diagnostic funnel URL.
 - The page is `noindex` (see `app/layout.tsx`) so retargeting traffic stays
   measurable on its own URL.

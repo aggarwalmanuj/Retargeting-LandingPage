@@ -1,7 +1,7 @@
 import { Reveal } from "./motion"
 
 /**
- * IV — The gate. The generic "gravity line" that qualifies for genuine intent.
+ * IV - The gate. The generic "gravity line" that qualifies for genuine intent.
  * Deliberately quiet and centered: it should feel like a held breath before
  * the CTA, not a sales pitch.
  */

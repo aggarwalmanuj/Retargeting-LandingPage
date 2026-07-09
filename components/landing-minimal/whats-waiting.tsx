@@ -4,7 +4,7 @@ const takeaways = [
   {
     n: "01",
     title: "A personalized reflection",
-    body: "Written back in your own words — what the pattern has been quietly telling you.",
+    body: "Written back in your own words - what the pattern has been quietly telling you.",
   },
   {
     n: "02",
@@ -18,7 +18,7 @@ const takeaways = [
   },
 ]
 
-/** III — What's waiting. The payoff for finishing the diagnostic. */
+/** III - What's waiting. The payoff for finishing the diagnostic. */
 export function WhatsWaitingSection() {
   return (
     <section className="relative" id="whats-waiting">

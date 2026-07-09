@@ -1,7 +1,7 @@
 import { Reveal, WordReveal } from "./motion"
 import { PrimaryCta } from "./cta"
 
-/** V — Closing. The last, warmest invitation back into the diagnostic. */
+/** V - Closing. The last, warmest invitation back into the diagnostic. */
 export function ClosingSection() {
   return (
     <section className="relative overflow-hidden" id="begin">
@@ -42,7 +42,7 @@ export function ClosingSection() {
             >
               <p>
                 Pick up where you left off. Five quiet questions, and the
-                language for what you already knew — your reflection, your score,
+                language for what you already knew - your reflection, your score,
                 and a clear next step.
               </p>
             </Reveal>

@@ -17,7 +17,7 @@ const fraunces = Fraunces({
 })
 
 export const metadata: Metadata = {
-  title: "Welcome back — pick up where you left off",
+  title: "Welcome back - pick up where you left off",
   description:
     "You started something and stepped away before you got your reflection. Two minutes will show you what's underneath the pattern.",
   robots: { index: false, follow: false },
@@ -30,8 +30,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
-      {/* Marine palette is locked at the body so the entire canvas — including
-          any area outside the page wrapper — resolves to the deep-teal theme. */}
+      {/* Marine palette is locked at the body so the entire canvas - including
+          any area outside the page wrapper - resolves to the deep-teal theme. */}
       <body
         data-palette="marine"
         className="min-h-screen bg-background font-sans text-foreground antialiased"
