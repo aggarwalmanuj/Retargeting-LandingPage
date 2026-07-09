@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Menu, X, ArrowUpRight } from "lucide-react"
+import { FUNNEL_HREF } from "./cta"
 
 const navLinks = [
   { href: "#whats-waiting", label: "What's waiting" },
@@ -9,7 +10,8 @@ const navLinks = [
   { href: "#begin", label: "Begin" },
 ]
 
-const CTA_HREF = "#begin"
+// header CTA goes straight to the diagnostic funnel (single source of truth)
+const CTA_HREF = FUNNEL_HREF
 
 export function MinimalHeader() {
   const [scrolled, setScrolled] = useState(false)

@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react"
 
 /** Destination: the diagnostic funnel with the Curious / Frustrated / Ready gate. */
-export const FUNNEL_HREF = "/diagnostic"
+export const FUNNEL_HREF = "https://www.aimerge.live/challenge/audience"
 
 /**
  * PrimaryCta - the retargeting call to action. Same button + honest sub-line
