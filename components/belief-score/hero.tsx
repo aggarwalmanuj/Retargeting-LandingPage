@@ -37,35 +37,21 @@ export function HeroBlock() {
           have taught you to believe.
         </Reveal>
 
-        {/* VSL - responsive 16:9, no autoplay audio, poster hints at the result UI */}
+        {/* VSL - responsive 16:9 placeholder frame; drop the real video in here */}
         <Reveal as="div" delay={400} className="mx-auto mt-10 max-w-3xl sm:mt-12">
           <div className="signal-halo relative">
             <div
-              className="relative aspect-video w-full overflow-hidden rounded-xl border border-border bg-gradient-to-br from-[color-mix(in_srgb,var(--signal)_20%,var(--background))] to-background"
+              className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-xl border border-border bg-gradient-to-br from-[color-mix(in_srgb,var(--signal)_14%,var(--background))] to-background"
               role="img"
-              aria-label="Return VSL video placeholder - poster shows the result interface"
+              aria-label="Return VSL video - placeholder"
             >
-              {/* faint result-interface hint behind the play control */}
-              <div
-                className="pointer-events-none absolute inset-0 flex flex-col gap-2 p-6 opacity-[0.22] blur-[1px]"
-                aria-hidden
-              >
-                {[0, 1, 2, 3].map((r) => (
-                  <div key={r} className="flex items-center gap-3">
-                    <span className="h-6 w-6 shrink-0 rounded-full border border-ink/50" />
-                    <span className="h-2 rounded-full bg-ink/40" style={{ width: `${70 - r * 12}%` }} />
-                  </div>
-                ))}
-              </div>
-              <div className="absolute inset-0 bg-background/30" aria-hidden />
-
               {/* play control */}
-              <span className="absolute left-1/2 top-1/2 flex h-[4.5rem] w-[4.5rem] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-ink/40 bg-background/50 backdrop-blur-md transition-transform duration-300 hover:scale-105">
+              <span className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full border border-ink/40 bg-background/40 backdrop-blur-md transition-transform duration-300 hover:scale-105">
                 <Play className="ml-1 h-7 w-7 text-ink" strokeWidth={1.3} fill="currentColor" />
               </span>
 
               {/* caption chip */}
-              <span className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-border bg-background/70 px-4 py-1.5 text-[0.62rem] uppercase tracking-[0.14em] text-foreground/60 backdrop-blur-sm">
+              <span className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-border bg-background/70 px-4 py-1.5 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-foreground/60 backdrop-blur-sm">
                 Return VSL · ~2 min · captions · no autoplay
               </span>
             </div>

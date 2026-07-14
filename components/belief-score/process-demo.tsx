@@ -1,6 +1,7 @@
 import { Reveal } from "../landing-minimal/motion"
 import { Section, Eyebrow } from "./section"
 import { PrimaryCta } from "./cta"
+import { MockupFrame } from "./mockup"
 
 // the first item is the raw input; the five that follow are the map stages.
 const trace = [
@@ -32,38 +33,9 @@ const trace = [
   },
 ]
 
-const exampleResult = [
-  {
-    label: "Your Recurring Pattern",
-    body: "When the next useful action becomes clear, you return to preparation, explanation, or delay.",
-  },
-  {
-    label: "A Possible Belief Underneath",
-    body: "“I cannot rely on myself until the situation becomes urgent.”",
-    quote: true,
-  },
-  {
-    label: "How the Pattern May Keep Proving Itself",
-    body: "The action becomes visible. Uncertainty rises. You add more, prepare again, delay the decision. Pressure grows. Eventually urgency creates movement. The mind records: “I needed the pressure.”",
-  },
-  {
-    label: "The Moment to Watch",
-    body: "The first moment you feel pulled to add more instead of completing the available action.",
-  },
-  {
-    label: "What Different Evidence Could Look Like",
-    body: "Complete one clear, proportionate action before urgency becomes necessary.",
-  },
-  {
-    label: "One Practical Next Step",
-    body: "Write the smallest action that would make the pattern operationally different - not emotionally perfect.",
-  },
-]
-
 /**
- * BLOCK 07 - Process Demonstration + Example Result. A single worked example
- * read as a connected trace: raw words at the top, the five stages beneath it,
- * then a full illustrative result.
+ * BLOCK 07 - Process Demonstration + Example Result. The real reflection screen,
+ * a single worked example traced through the stages, then a real example report.
  */
 export function ProcessDemoBlock() {
   let stageNo = 0
@@ -78,7 +50,23 @@ export function ProcessDemoBlock() {
         </h2>
       </Reveal>
       <Reveal delay={140} className="mt-5 max-w-xl text-[1.15rem] leading-[1.6] text-foreground/80">
-        One honest example, traced from a few sentences to a finished map.
+        One honest example, traced from a few sentences to a finished report.
+      </Reveal>
+
+      {/* the real question experience */}
+      <Reveal delay={160} className="mt-10 sm:mt-12">
+        <MockupFrame label="AI Merge · The reflection">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/graphics/question.png"
+            alt="A question from the reflection"
+            className="block w-full"
+            loading="lazy"
+          />
+        </MockupFrame>
+        <p className="mt-3 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-foreground/40">
+          A few honest questions · answer in your own words
+        </p>
       </Reveal>
 
       {/* the connected trace */}
@@ -136,36 +124,21 @@ export function ProcessDemoBlock() {
         })}
       </div>
 
-      {/* the finished result */}
+      {/* the finished result - real report */}
       <Reveal delay={120} className="mt-16 sm:mt-20">
-        <div className="s-card overflow-hidden">
-          <div className="flex items-center justify-between gap-4 border-b border-border bg-secondary/50 px-6 py-5 sm:px-8">
-            <h3 className="font-serif text-[1.5rem] text-ink sm:text-[1.7rem]">
-              Example Belief Score Result
-            </h3>
-            <span className="rounded-full border border-border px-3 py-1 font-mono text-[0.68rem] uppercase tracking-[0.14em] text-muted-foreground">
-              Illustrative
-            </span>
-          </div>
-          <div className="divide-y divide-border">
-            {exampleResult.map((row, i) => (
-              <div key={i} className="px-6 py-6 sm:px-8">
-                <p className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-muted-foreground">
-                  {row.label}
-                </p>
-                <p
-                  className={`mt-2.5 leading-[1.6] ${
-                    row.quote
-                      ? "font-serif-italic text-[1.2rem] text-ink"
-                      : "text-[1.12rem] text-foreground/90"
-                  }`}
-                >
-                  {row.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <p className="mb-5 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-muted-foreground">
+          <span className="tick mr-3 align-middle" aria-hidden />
+          Example report
+        </p>
+        <MockupFrame label="AI Merge · Report">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/graphics/reportpdf.png"
+            alt="Example of a finished report"
+            className="block w-full"
+            loading="lazy"
+          />
+        </MockupFrame>
       </Reveal>
 
       <Reveal delay={120} className="mt-8 max-w-2xl space-y-2 text-[1.05rem] leading-[1.6] text-muted-foreground">
