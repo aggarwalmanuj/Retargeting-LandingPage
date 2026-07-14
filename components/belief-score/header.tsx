@@ -1,7 +1,8 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { PrimaryCta } from "./cta"
+import { ArrowRight } from "lucide-react"
+import { FUNNEL_HREF } from "./cta"
 
 /**
  * Minimal header - brand wordmark + the single CTA. Deliberately low-height so
@@ -45,11 +46,20 @@ export function BeliefHeader() {
           <span className="brand-mark brand-mark-sm sm:!w-[128px]" aria-hidden />
         </a>
 
-        <PrimaryCta
-          location="header"
-          label="Complete Your Free Score"
-          className="!hidden text-[0.68rem] sm:!inline-flex"
-        />
+        {/* always visible - short label on mobile, full label from sm up */}
+        <a
+          href={FUNNEL_HREF}
+          data-cta-location="header"
+          className="s-btn group shrink-0 gap-2 px-4 text-[0.6rem] sm:px-6 sm:text-[0.68rem]"
+        >
+          <span className="sm:hidden">Free Score</span>
+          <span className="hidden sm:inline">Complete Your Free Score</span>
+          <ArrowRight
+            className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5 sm:h-3.5 sm:w-3.5"
+            strokeWidth={1.8}
+            aria-hidden
+          />
+        </a>
       </div>
     </header>
   )
