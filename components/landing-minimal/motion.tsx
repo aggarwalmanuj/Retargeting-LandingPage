@@ -62,6 +62,10 @@ type Segment =
 /**
  * WordReveal - staggers each word upward. Accepts mixed text / italic / break
  * segments so a headline can carry an emphasized second line.
+ *
+ * Each word is an inline-block animated unit and the space is kept BETWEEN the
+ * word spans (not inside them) so long headlines wrap on narrow screens instead
+ * of overflowing.
  */
 export function WordReveal({ segments }: { segments: readonly Segment[] }) {
   let wordIndex = 0
@@ -71,20 +75,23 @@ export function WordReveal({ segments }: { segments: readonly Segment[] }) {
       {segments.map((seg, i) => {
         if (seg.kind === "br") return <br key={`br-${i}`} />
         const italic = seg.kind === "italic"
+        const words = seg.text.split(" ")
         return (
           <span
             key={`seg-${i}`}
             className={italic ? "font-serif-italic" : undefined}
           >
-            {seg.text.split(" ").map((word, w) => {
+            {words.map((word, w) => {
               const idx = wordIndex++
               return (
-                <span
-                  key={`w-${i}-${w}`}
-                  style={{ animationDelay: `${idx * 90 + 120}ms` }}
-                >
-                  {word}
-                  {w < seg.text.split(" ").length - 1 ? " " : ""}
+                <span key={`w-${i}-${w}`}>
+                  <span
+                    className="wr-word"
+                    style={{ animationDelay: `${idx * 90 + 120}ms` }}
+                  >
+                    {word}
+                  </span>
+                  {w < words.length - 1 ? " " : ""}
                 </span>
               )
             })}

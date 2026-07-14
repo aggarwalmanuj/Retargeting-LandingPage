@@ -14,6 +14,8 @@
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-serif: var(--font-fraunces), ui-serif, Georgia, "Times New Roman",
     serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", Menlo,
+    monospace;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -37,7 +39,7 @@
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.5rem;
 
   --background: #fafaf9;
   --foreground: #0c0a09;
@@ -68,25 +70,26 @@
    deep-teal editorial theme, not the light default above.
 */
 [data-palette="marine"] {
-  --background: #0f2c3b;
-  --foreground: #a8c4d0;
-  --ink: #eaf0f4;
-  --card: #163a4d;
-  --card-foreground: #eaf0f4;
-  --primary: #eaf0f4;
-  --primary-foreground: #0f2c3b;
-  --secondary: #194254;
-  --secondary-foreground: #eaf0f4;
-  --muted: #1d4960;
-  --muted-foreground: #95b5c4;
+  /* deep teal-black ground for depth; body text lifted for legibility */
+  --background: #0a232e;
+  --foreground: #b6cdd8;
+  --ink: #eff5f8;
+  --card: #103039;
+  --card-foreground: #eff5f8;
+  --primary: #eff5f8;
+  --primary-foreground: #0a232e;
+  --secondary: #103642;
+  --secondary-foreground: #eff5f8;
+  --muted: #16414f;
+  --muted-foreground: #7fa0ae;
   --accent: #2a6b85;
-  --accent-foreground: #eaf0f4;
-  --border: #245a73;
+  --accent-foreground: #eff5f8;
+  --border: #204b5c;
   --input: #2c6b87;
-  --ring: #eaf0f4;
-  --signal: #5fc5d4;
-  --glow: 95 197 212;
-  --shadow-ink: 5, 18, 26;
+  --ring: #5ec8d6;
+  --signal: #5ec8d6;
+  --glow: 94 200 214;
+  --shadow-ink: 2, 12, 18;
 }
 
 * {
@@ -94,7 +97,11 @@
 }
 
 html {
+  /* readability lift for a 25-30+ audience: scales all rem-based type + spacing
+     up ~6% from the 16px default. */
+  font-size: 17px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -150,16 +157,55 @@ body {
   opacity: 0.82;
 }
 
+/* client logo wall - the brand logos ship on white backgrounds, so each sits on
+   a soft light chip to read cleanly on the dark ground. */
+.logo-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.25rem;
+  padding: 0 1.15rem;
+  border-radius: var(--radius);
+  background: #f3f5f6;
+  opacity: 0.9;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.logo-chip:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+.logo-chip img {
+  width: auto;
+  object-fit: contain;
+}
+
+/* the "instrument readout" label: mono, quiet, precise. carries eyebrows and
+   field names throughout the page. */
 .eyebrow {
   display: inline-flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  max-width: 100%;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  color: var(--muted-foreground);
 }
 
-/* pulsing signal dot used in eyebrows */
+/* a short hairline tick that leads an eyebrow - the accent lives here, quietly */
+.tick {
+  display: inline-block;
+  width: 1.4rem;
+  height: 1px;
+  flex-shrink: 0;
+  background: var(--signal);
+  opacity: 0.85;
+}
+
+/* pulsing signal dot - reserved for the single "live / waiting" moment (hero) */
 .pulse-dot {
   display: inline-block;
   width: 6px;
@@ -257,15 +303,16 @@ body {
 
 /* -------- surfaces ------------------------------------------------------- */
 .s-card {
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
   border-radius: var(--radius);
-  background: color-mix(in srgb, var(--background) 60%, transparent);
+  background: color-mix(in srgb, var(--card) 45%, transparent);
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    border-color 0.5s ease, box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .s-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 40px -20px rgba(var(--shadow-ink), 0.6);
+  border-color: color-mix(in srgb, var(--signal) 45%, var(--border));
+  box-shadow: 0 18px 44px -22px rgba(var(--shadow-ink), 0.7);
 }
 
 .signal-halo::before {
@@ -322,7 +369,9 @@ body {
   }
 }
 
-.word-reveal > span {
+/* Each word animates as its own inline-block; the space between words stays a
+   normal breakable space so long headlines wrap instead of overflowing. */
+.wr-word {
   display: inline-block;
   opacity: 0;
   transform: translateY(0.5em);
@@ -348,7 +397,7 @@ body {
     opacity: 1;
     transform: none;
   }
-  .word-reveal > span {
+  .wr-word {
     opacity: 1;
     transform: none;
   }
