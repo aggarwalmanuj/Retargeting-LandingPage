@@ -1,6 +1,6 @@
 import { Reveal, WordReveal } from "../landing-minimal/motion"
 import { PrimaryCta, TrustLine } from "./cta"
-import { Play } from "lucide-react"
+import { VslPlayer } from "./vsl-player"
 
 /**
  * BLOCK 01 - Hero. Restores recognition and moves straight to continuation.
@@ -37,25 +37,9 @@ export function HeroBlock() {
           have taught you to believe.
         </Reveal>
 
-        {/* VSL - responsive 16:9 placeholder frame; drop the real video in here */}
+        {/* VSL - real video with three chips floating on the frame border */}
         <Reveal as="div" delay={400} className="mx-auto mt-10 max-w-3xl sm:mt-12">
-          <div className="signal-halo relative">
-            <div
-              className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-xl border border-border bg-gradient-to-br from-[color-mix(in_srgb,var(--signal)_14%,var(--background))] to-background"
-              role="img"
-              aria-label="Return VSL video - placeholder"
-            >
-              {/* play control */}
-              <span className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full border border-ink/40 bg-background/40 backdrop-blur-md transition-transform duration-300 hover:scale-105">
-                <Play className="ml-1 h-7 w-7 text-ink" strokeWidth={1.3} fill="currentColor" />
-              </span>
-
-              {/* caption chip */}
-              <span className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-border bg-background/70 px-4 py-1.5 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-foreground/60 backdrop-blur-sm">
-                Return VSL · ~2 min · captions · no autoplay
-              </span>
-            </div>
-          </div>
+          <VslPlayer />
         </Reveal>
 
         <Reveal as="div" delay={550} className="mt-9 sm:mt-11">

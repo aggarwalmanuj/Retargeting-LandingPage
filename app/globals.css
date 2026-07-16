@@ -301,6 +301,51 @@ body {
   color: var(--background);
 }
 
+/* -------- video / VSL --------------------------------------------------- */
+/* annotation chips that float on the video frame's border (desktop only) */
+/* frosted-glass annotation chip. display is controlled by Tailwind
+   (hidden lg:inline-flex) so it can hide on mobile - do NOT set display here or
+   it overrides the `hidden` utility. */
+.vsl-chip {
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--card) 68%, transparent);
+  border: 1px solid color-mix(in srgb, var(--signal) 42%, transparent);
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 16px 38px -18px rgba(var(--shadow-ink), 0.95),
+    inset 0 1px 0 0 color-mix(in srgb, var(--ink) 12%, transparent);
+}
+.vsl-chip::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--signal);
+  box-shadow: 0 0 8px 0 var(--signal);
+  flex-shrink: 0;
+}
+
+/* soft glow bloom behind the video frame */
+.hero-glow {
+  position: absolute;
+  inset: -12%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgb(var(--glow) / 0.22),
+    transparent 62%
+  );
+  filter: blur(48px);
+}
+
 /* -------- surfaces ------------------------------------------------------- */
 .s-card {
   border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);

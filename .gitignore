@@ -29,3 +29,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# redundant source copy of the VSL (the served copy lives in public/video/)
+/vsl - retarget - v1 - 16 July.mp4
