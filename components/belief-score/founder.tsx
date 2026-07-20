@@ -30,12 +30,15 @@ export function FounderBlock() {
       <div className="mt-8 grid gap-8 sm:mt-10 lg:grid-cols-12 lg:gap-12">
         {/* photo */}
         <Reveal as="div" delay={100} className="lg:col-span-4">
-          <div
-            className="img-placeholder aspect-[4/5] w-full overflow-hidden rounded-lg border border-border"
-            data-label="Founder photo — Manuj Aggarwal (authentic, ~1200×1500)"
-            role="img"
-            aria-label="Founder photo placeholder"
-          />
+          <div className="aspect-[4/5] w-full overflow-hidden rounded-lg border border-border">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/founder.jpg"
+              alt="Manuj Aggarwal, creator of AI Merge"
+              className="h-full w-full object-cover object-top"
+              loading="lazy"
+            />
+          </div>
         </Reveal>
 
         {/* statement */}
