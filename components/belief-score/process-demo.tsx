@@ -141,6 +141,17 @@ export function ProcessDemoBlock() {
         </MockupFrame>
       </Reveal>
 
+      {/* One Practical Next Step - the return-page-specific completion nudge. */}
+      <Reveal delay={100} className="mt-8 max-w-2xl border-l-2 border-signal/40 pl-5 sm:pl-6">
+        <p className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-muted-foreground">
+          One Practical Next Step
+        </p>
+        <p className="mt-2 text-[1.12rem] leading-[1.55] text-foreground/90">
+          Write the smallest action that would make the pattern operationally
+          different - not emotionally perfect.
+        </p>
+      </Reveal>
+
       <Reveal delay={120} className="mt-8 max-w-2xl space-y-2 text-[1.05rem] leading-[1.6] text-muted-foreground">
         <p className="font-serif-italic text-[1.15rem] text-ink">
           Your result will be built from your own words.

@@ -13,7 +13,7 @@ const stages = [
     n: "2",
     title: "The Possible Belief",
     lead: "What may the repeated experience have taught you to conclude?",
-    example: "I cannot trust myself without pressure.",
+    example: "I cannot trust myself without pressure. · Directness damages trust. · The work is safe while it remains unfinished.",
     note: "A possible interpretation. Not a verdict.",
   },
   {

@@ -45,7 +45,7 @@ export function FounderBlock() {
         <div className="lg:col-span-8">
           <Reveal delay={150}>
             <h2 className="font-serif text-[1.9rem] leading-[1.12] text-ink sm:text-4xl">
-              Why I built AI Merge
+              Why I built the Belief Score
             </h2>
           </Reveal>
           <Reveal delay={200}>

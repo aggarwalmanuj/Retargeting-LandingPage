@@ -114,22 +114,38 @@ const faqs: FaqItem[] = [
         <p className="font-medium text-ink">Research foundation</p>
         <p>
           Research across learning, expectations, stress, attention, identity,
-          social evaluation, decision-making, and behavior suggests that prior
-          beliefs may influence what people notice, expect, avoid, and attempt.
-          This does not mean belief is the sole cause of any outcome. The Belief
-          Score should be treated as reflective and educational.
+          social evaluation, decision-making, and behavior suggests prior beliefs
+          may influence what people notice, expect, avoid, and attempt, and how
+          they respond under pressure. This does not mean belief is the sole
+          cause of any life, medical, professional, relational, financial, or
+          business outcome. The AI Merge methodology combines established
+          principles with a proprietary interpretive framework and should be
+          treated as reflective and educational unless direct validation research
+          establishes stronger claims.
+        </p>
+        <p className="font-medium text-ink">How technology supports the result</p>
+        <p>
+          The system organizes the information you provide. It does not
+          independently know your history, does not read your mind, does not
+          overwrite beliefs, and does not replace professional support or
+          personal judgment.
+        </p>
+        <p className="font-medium text-ink">Privacy and data</p>
+        <p>
+          Before publication, what is collected, why, where it is stored, which
+          vendors process it, whether humans may review it, retention, deletion
+          and access, model-training use, and any sharing will be verified and
+          disclosed. Nothing here should be read as a claim that data is
+          confidential, anonymous, never reviewed, never sold, or excluded from
+          training unless that has been verified.
         </p>
         <p className="font-medium text-ink">Professional boundaries</p>
         <p>
           The Belief Score is not medical advice, mental-health treatment,
           psychotherapy, crisis support, diagnosis, legal advice, financial
-          advice, employment evaluation, or a guarantee of any health, revenue,
-          performance, relationship, or business outcome. Use personal judgment
-          and appropriate qualified support where needed.
-        </p>
-        <p className="text-foreground/55">
-          Privacy, data-handling, retention, and research wording to be verified
-          and disclosed before launch.
+          advice, employment evaluation, sales consulting, business consulting,
+          professional certification, or a guarantee of any outcome. Use personal
+          judgment and qualified support where needed.
         </p>
       </>
     ),

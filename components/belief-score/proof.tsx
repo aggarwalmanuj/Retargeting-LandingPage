@@ -1,5 +1,6 @@
 import { Reveal } from "../landing-minimal/motion"
 import { Section, Eyebrow } from "./section"
+import { TestimonialReel } from "./testimonial-reel"
 
 const testimonials = [
   {
@@ -30,8 +31,17 @@ export function ProofBlock() {
           What participants have noticed through AI Merge
         </h2>
       </Reveal>
+      <Reveal delay={140} className="mt-5 max-w-xl text-[1.1rem] leading-[1.6] text-foreground/80">
+        Experiences reported by AI Merge participants, in their own words. Tap
+        any clip to listen.
+      </Reveal>
 
-      <div className="mt-10 grid gap-6 sm:mt-14 sm:grid-cols-2">
+      {/* video reel - anonymous participant clips */}
+      <Reveal delay={160} className="mt-10 sm:mt-12">
+        <TestimonialReel />
+      </Reveal>
+
+      <div className="mt-12 grid gap-6 sm:mt-14 sm:grid-cols-2">
         {testimonials.map((t, i) => (
           <Reveal
             key={i}
@@ -53,9 +63,9 @@ export function ProofBlock() {
       </div>
 
       <Reveal delay={120} className="mt-8 max-w-2xl text-[0.85rem] leading-relaxed text-foreground/55">
-        Individual experiences vary. These comments reflect personal experiences
-        with AI Merge and do not guarantee that another participant will receive
-        the same result.
+        Individual experiences vary. These accounts reflect personal experiences
+        with the full AI Merge experience, not the free Belief Score, and do not
+        guarantee that another participant will experience the same result.
       </Reveal>
     </Section>
   )
