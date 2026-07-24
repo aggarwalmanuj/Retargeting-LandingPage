@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { Reveal } from "../landing-minimal/motion"
 import { Eyebrow } from "./section"
 import { MockupFrame } from "./mockup"
@@ -67,12 +68,13 @@ export function ProductProofBlock() {
           {/* real report screenshot as supporting proof */}
           <Reveal as="div" delay={180} className="min-w-0 lg:col-span-7">
             <MockupFrame label="AI Merge · Your report">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/graphics/reportsummary.png"
                 alt="Example of a personalized report"
-                className="block w-full"
-                loading="lazy"
+                width={1792}
+                height={815}
+                sizes="(max-width: 1024px) 100vw, 600px"
+                className="block h-auto w-full"
               />
             </MockupFrame>
             <p className="mt-3 text-center font-mono text-[0.7rem] uppercase tracking-[0.14em] text-foreground/40">

@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { Reveal } from "../landing-minimal/motion"
 import { Section, Eyebrow } from "./section"
 
@@ -9,11 +10,11 @@ const credentials = [
 ]
 
 const logos = [
-  { name: "IBM", src: "/logos/ibm.png", h: "h-5" },
-  { name: "Microsoft", src: "/logos/microsoft.png", h: "h-6" },
-  { name: "T-Mobile", src: "/logos/tmobile.png", h: "h-8" },
-  { name: "Pearson", src: "/logos/pearson.png", h: "h-7" },
-  { name: "United Nations", src: "/logos/un.png", h: "h-9" },
+  { name: "IBM", src: "/logos/ibm.png", h: "h-5", w: 2500, ht: 1000 },
+  { name: "Microsoft", src: "/logos/microsoft.png", h: "h-6", w: 500, ht: 500 },
+  { name: "T-Mobile", src: "/logos/tmobile.png", h: "h-8", w: 225, ht: 225 },
+  { name: "Pearson", src: "/logos/pearson.png", h: "h-7", w: 1420, ht: 1556 },
+  { name: "United Nations", src: "/logos/un.png", h: "h-9", w: 3840, ht: 3269 },
 ]
 
 /**
@@ -30,13 +31,13 @@ export function FounderBlock() {
       <div className="mt-8 grid gap-8 sm:mt-10 lg:grid-cols-12 lg:gap-12">
         {/* photo */}
         <Reveal as="div" delay={100} className="lg:col-span-4">
-          <div className="aspect-[4/5] w-full overflow-hidden rounded-lg border border-border">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg border border-border">
+            <Image
               src="/images/founder.jpg"
               alt="Manuj Aggarwal, creator of AI Merge"
-              className="h-full w-full object-cover object-top"
-              loading="lazy"
+              fill
+              sizes="(max-width: 1024px) 100vw, 340px"
+              className="object-cover object-top"
             />
           </div>
         </Reveal>
@@ -94,8 +95,14 @@ export function FounderBlock() {
         <div className="mt-6 flex flex-wrap items-center gap-3 sm:gap-4">
           {logos.map((l) => (
             <span key={l.name} className="logo-chip">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={l.src} alt={`${l.name} logo`} className={l.h} loading="lazy" />
+              <Image
+                src={l.src}
+                alt={`${l.name} logo`}
+                width={l.w}
+                height={l.ht}
+                sizes="120px"
+                className={`${l.h} w-auto`}
+              />
             </span>
           ))}
         </div>

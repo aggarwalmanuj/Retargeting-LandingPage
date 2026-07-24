@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { Reveal } from "../landing-minimal/motion"
 import { Section, Eyebrow } from "./section"
 import { PrimaryCta } from "./cta"
@@ -56,12 +57,13 @@ export function ProcessDemoBlock() {
       {/* the real question experience */}
       <Reveal delay={160} className="mt-10 sm:mt-12">
         <MockupFrame label="AI Merge · The reflection">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/graphics/question.png"
             alt="A question from the reflection"
-            className="block w-full"
-            loading="lazy"
+            width={1888}
+            height={906}
+            sizes="(max-width: 1024px) 100vw, 960px"
+            className="block h-auto w-full"
           />
         </MockupFrame>
         <p className="mt-3 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-foreground/40">
@@ -131,12 +133,13 @@ export function ProcessDemoBlock() {
           Example report
         </p>
         <MockupFrame label="AI Merge · Report">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/graphics/reportpdf.png"
             alt="Example of a finished report"
-            className="block w-full"
-            loading="lazy"
+            width={988}
+            height={769}
+            sizes="(max-width: 1024px) 100vw, 960px"
+            className="block h-auto w-full"
           />
         </MockupFrame>
       </Reveal>
