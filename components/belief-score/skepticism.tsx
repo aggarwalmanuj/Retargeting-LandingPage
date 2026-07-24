@@ -47,19 +47,21 @@ export function SkepticismBlock() {
         </Reveal>
 
         {/* the five, numbered */}
-        <Reveal as="ul" delay={120} className="lg:col-span-7">
-          <div className="divide-y divide-border border-y border-border">
-            {clarifies.map((c, i) => (
-              <li key={i} className="flex items-baseline gap-5 py-4">
-                <span className="font-mono text-[0.8rem] text-signal">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="text-[1.05rem] leading-[1.5] text-foreground/90">
-                  {c}
-                </span>
-              </li>
-            ))}
-          </div>
+        <Reveal
+          as="ul"
+          delay={120}
+          className="divide-y divide-border border-y border-border lg:col-span-7"
+        >
+          {clarifies.map((c, i) => (
+            <li key={i} className="flex items-baseline gap-5 py-4">
+              <span className="font-mono text-[0.8rem] text-signal">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="text-[1.05rem] leading-[1.5] text-foreground/90">
+                {c}
+              </span>
+            </li>
+          ))}
         </Reveal>
       </div>
 

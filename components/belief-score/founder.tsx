@@ -91,7 +91,7 @@ export function FounderBlock() {
 
       {/* logo wall */}
       <Reveal delay={140} className="mt-8">
-        <p className="eyebrow text-foreground/50">Professional experience behind AI Merge</p>
+        <p className="eyebrow text-foreground/70">Professional experience behind AI Merge</p>
         <div className="mt-6 flex flex-wrap items-center gap-3 sm:gap-4">
           {logos.map((l) => (
             <span key={l.name} className="logo-chip">
@@ -106,7 +106,7 @@ export function FounderBlock() {
             </span>
           ))}
         </div>
-        <p className="mt-5 max-w-3xl text-[0.78rem] leading-relaxed text-foreground/50">
+        <p className="mt-5 max-w-3xl text-[0.78rem] leading-relaxed text-foreground/70">
           Organizations shown reflect prior professional work by Manuj Aggarwal
           and do not imply endorsement of AI Merge, the Belief Score, TetraNoodle
           Technologies, or this offer.

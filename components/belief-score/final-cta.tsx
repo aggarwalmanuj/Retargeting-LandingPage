@@ -44,7 +44,7 @@ export function FinalCtaBlock() {
           <TrustLine className="mx-auto mt-4 max-w-md" />
         </Reveal>
 
-        <Reveal delay={300} className="mx-auto mt-8 max-w-md text-[0.95rem] leading-relaxed text-foreground/60">
+        <Reveal delay={300} className="mx-auto mt-8 max-w-md text-[0.95rem] leading-relaxed text-foreground/65">
           Your result is a starting point for reflection. Not a final statement
           about who you are.
         </Reveal>

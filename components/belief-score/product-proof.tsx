@@ -45,24 +45,26 @@ export function ProductProofBlock() {
 
         <div className="mt-10 grid items-start gap-10 sm:mt-12 lg:grid-cols-12 lg:gap-14">
           {/* the five named fields - the value made concrete first */}
-          <Reveal as="ul" delay={140} className="min-w-0 lg:col-span-5">
-            <div className="divide-y divide-border border-y border-border">
-              {fields.map((f, i) => (
-                <li key={f.title} className="flex items-baseline gap-5 py-5">
-                  <span className="font-mono text-[0.8rem] text-signal">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className="min-w-0">
-                    <h3 className="font-serif text-[1.25rem] leading-tight text-ink sm:text-[1.35rem]">
-                      {f.title}
-                    </h3>
-                    <p className="mt-1.5 text-[1rem] leading-[1.55] text-foreground/75">
-                      {f.q}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </div>
+          <Reveal
+            as="ul"
+            delay={140}
+            className="min-w-0 divide-y divide-border border-y border-border lg:col-span-5"
+          >
+            {fields.map((f, i) => (
+              <li key={f.title} className="flex items-baseline gap-5 py-5">
+                <span className="font-mono text-[0.8rem] text-signal">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div className="min-w-0">
+                  <h3 className="font-serif text-[1.25rem] leading-tight text-ink sm:text-[1.35rem]">
+                    {f.title}
+                  </h3>
+                  <p className="mt-1.5 text-[1rem] leading-[1.55] text-foreground/75">
+                    {f.q}
+                  </p>
+                </div>
+              </li>
+            ))}
           </Reveal>
 
           {/* real report screenshot as supporting proof */}
@@ -77,7 +79,7 @@ export function ProductProofBlock() {
                 className="block h-auto w-full"
               />
             </MockupFrame>
-            <p className="mt-3 text-center font-mono text-[0.7rem] uppercase tracking-[0.14em] text-foreground/40">
+            <p className="mt-3 text-center font-mono text-[0.7rem] uppercase tracking-[0.14em] text-foreground/70">
               Example report · your answers create your own
             </p>
           </Reveal>

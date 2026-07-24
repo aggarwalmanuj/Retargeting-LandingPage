@@ -21,7 +21,7 @@ export function MockupFrame({
           <span className="h-2.5 w-2.5 rounded-full bg-foreground/20" />
           <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
           {label && (
-            <span className="ml-2 min-w-0 truncate font-mono text-[0.68rem] uppercase tracking-[0.12em] text-foreground/45">
+            <span className="ml-2 min-w-0 truncate font-mono text-[0.68rem] uppercase tracking-[0.12em] text-foreground/70">
               {label}
             </span>
           )}
@@ -51,7 +51,7 @@ export function ResultMockup() {
         <div className="flex items-center justify-between gap-3 bg-card px-5 py-4">
           <div>
             <p className="font-serif text-[1.05rem] text-ink">Your result</p>
-            <p className="text-[0.72rem] uppercase tracking-[0.14em] text-foreground/45">
+            <p className="text-[0.72rem] uppercase tracking-[0.14em] text-foreground/70">
               Built from your own words
             </p>
           </div>
@@ -66,7 +66,7 @@ export function ResultMockup() {
               {f.n}
             </span>
             <div className="min-w-0">
-              <p className="text-[0.7rem] uppercase tracking-[0.14em] text-foreground/50">
+              <p className="text-[0.7rem] uppercase tracking-[0.14em] text-foreground/70">
                 {f.title}
               </p>
               <p className="mt-1 text-[0.92rem] leading-snug text-foreground/85">

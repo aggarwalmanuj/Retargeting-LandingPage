@@ -89,7 +89,7 @@ export function BeliefMapBlock() {
                 {s.example}
               </p>
               {s.note && (
-                <p className="mt-2 text-[0.72rem] uppercase tracking-[0.1em] text-foreground/45">
+                <p className="mt-2 text-[0.72rem] uppercase tracking-[0.1em] text-foreground/70">
                   {s.note}
                 </p>
               )}

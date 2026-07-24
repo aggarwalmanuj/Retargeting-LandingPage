@@ -50,10 +50,15 @@ export function BeliefHeader() {
         <a
           href={FUNNEL_HREF}
           data-cta-location="header"
+          aria-label="Complete Your Free Score"
           className="s-btn group shrink-0 gap-2 px-4 text-[0.6rem] sm:px-6 sm:text-[0.68rem]"
         >
-          <span className="sm:hidden">Free Score</span>
-          <span className="hidden sm:inline">Complete Your Free Score</span>
+          <span className="sm:hidden" aria-hidden>
+            Free Score
+          </span>
+          <span className="hidden sm:inline" aria-hidden>
+            Complete Your Free Score
+          </span>
           <ArrowRight
             className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5 sm:h-3.5 sm:w-3.5"
             strokeWidth={1.8}

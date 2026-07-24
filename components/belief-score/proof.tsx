@@ -62,7 +62,7 @@ export function ProofBlock() {
         ))}
       </div>
 
-      <Reveal delay={120} className="mt-8 max-w-2xl text-[0.85rem] leading-relaxed text-foreground/55">
+      <Reveal delay={120} className="mt-8 max-w-2xl text-[0.85rem] leading-relaxed text-foreground/70">
         Individual experiences vary. These accounts reflect personal experiences
         with the full AI Merge experience, not the free Belief Score, and do not
         guarantee that another participant will experience the same result.

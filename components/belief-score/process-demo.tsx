@@ -66,7 +66,7 @@ export function ProcessDemoBlock() {
             className="block h-auto w-full"
           />
         </MockupFrame>
-        <p className="mt-3 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-foreground/40">
+        <p className="mt-3 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-foreground/70">
           A few honest questions · answer in your own words
         </p>
       </Reveal>
