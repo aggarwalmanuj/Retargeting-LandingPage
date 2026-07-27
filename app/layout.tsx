@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Inter, Fraunces, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
+import { siteUrl, siteName, pageTitle, pageDescription } from "./lib/site"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,10 +26,27 @@ const mono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Your Belief Score Is Waiting",
-  description:
-    "Return to the pattern that caught your attention and see what it may have taught you to believe. Complete your free, personalized Belief Score.",
+  // Absolute-URL base for the social-share metadata below. This does NOT enable
+  // indexing - the page stays noindex/nofollow (see robots + app/robots.ts). It
+  // only lets shared links (paid social, email, SMS, DMs) render a preview card.
+  metadataBase: new URL(siteUrl),
+  title: pageTitle,
+  description: pageDescription,
   robots: { index: false, follow: false },
+  openGraph: {
+    type: "website",
+    siteName,
+    title: pageTitle,
+    description: pageDescription,
+    url: siteUrl,
+    // og:image is auto-injected from app/opengraph-image.tsx (1200x630).
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: pageTitle,
+    description: pageDescription,
+    // twitter:image is auto-injected from app/twitter-image.tsx.
+  },
 }
 
 export default function RootLayout({
