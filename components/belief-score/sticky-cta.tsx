@@ -1,7 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { FUNNEL_HREF } from "./cta"
+import { useFunnelHref } from "@/lib/use-funnel-href"
+import { trackEvent } from "@/lib/analytics"
 import { ArrowRight } from "lucide-react"
 
 /**
@@ -11,6 +12,7 @@ import { ArrowRight } from "lucide-react"
  */
 export function StickyCta() {
   const [visible, setVisible] = useState(false)
+  const href = useFunnelHref()
 
   useEffect(() => {
     const hero = document.getElementById("hero")
@@ -30,7 +32,8 @@ export function StickyCta() {
       }`}
     >
       <a
-        href={FUNNEL_HREF}
+        href={href}
+        onClick={() => trackEvent("cta_click", { location: "mobile_sticky" })}
         data-cta-location="mobile_sticky"
         className="s-btn group min-h-[44px] w-full"
       >

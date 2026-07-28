@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react"
 import { ArrowRight } from "lucide-react"
-import { FUNNEL_HREF } from "./cta"
+import { useFunnelHref } from "@/lib/use-funnel-href"
+import { trackEvent } from "@/lib/analytics"
 
 /**
  * Minimal header - brand wordmark + the single CTA. Deliberately low-height so
@@ -12,6 +13,7 @@ export function BeliefHeader() {
   const [scrolled, setScrolled] = useState(false)
   const [hidden, setHidden] = useState(false)
   const lastY = useRef(0)
+  const funnelHref = useFunnelHref()
 
   useEffect(() => {
     const onScroll = () => {
@@ -48,7 +50,8 @@ export function BeliefHeader() {
 
         {/* always visible - short label on mobile, full label from sm up */}
         <a
-          href={FUNNEL_HREF}
+          href={funnelHref}
+          onClick={() => trackEvent("cta_click", { location: "header" })}
           data-cta-location="header"
           aria-label="Complete Your Free Score"
           className="s-btn group shrink-0 gap-2 px-4 text-[0.6rem] sm:px-6 sm:text-[0.68rem]"

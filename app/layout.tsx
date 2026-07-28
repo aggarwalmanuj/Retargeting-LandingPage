@@ -2,6 +2,9 @@ import type { Metadata } from "next"
 import { Inter, Fraunces, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { siteUrl, siteName, pageTitle, pageDescription } from "./lib/site"
+import { FacebookPixel } from "@/components/facebook-pixel"
+import { CookieConsent } from "@/components/cookie-consent"
+import { LandingAnalytics } from "@/components/landing-analytics"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -68,7 +71,13 @@ export default function RootLayout({
         // before hydration; this stops the resulting dev-only warning.
         suppressHydrationWarning
       >
+        {/* Attribution capture now runs in instrumentation-client.ts, before
+            the app is interactive. These three are the analytics layer:
+            pixel + consent gate + page/scroll events. */}
+        <FacebookPixel />
+        <LandingAnalytics />
         {children}
+        <CookieConsent />
       </body>
     </html>
   )

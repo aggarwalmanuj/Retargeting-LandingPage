@@ -1,9 +1,17 @@
+"use client"
+
 import { ArrowRight } from "lucide-react"
+import { useFunnelHref } from "@/lib/use-funnel-href"
+import { trackEvent, type CtaLocation } from "@/lib/analytics"
 
 /**
  * Destination for every CTA on the page. Resume-or-begin routing is handled
- * server-side at this URL; the public label never changes. Single source of
- * truth - update here to repoint all buttons.
+ * server-side at this URL; the public label never changes.
+ *
+ * This bare constant is the SSR / pre-hydration fallback only. Live CTAs use
+ * `useFunnelHref()`, which appends the visitor's first-touch attribution
+ * (utm/click ids), their stable `ref`, and `lp=retarget` — the last of which
+ * also selects the funnel's retargeting vertical (welcome-back copy).
  */
 export const FUNNEL_HREF = "https://www.aimerge.live/challenge/audience"
 
@@ -20,14 +28,17 @@ export function PrimaryCta({
   full = false,
   label = CTA_LABEL,
 }: {
-  location: string
+  location: CtaLocation
   className?: string
   full?: boolean
   label?: string
 }) {
+  const href = useFunnelHref()
   return (
     <a
-      href={FUNNEL_HREF}
+      href={href}
+      // Fire-and-forget so it never delays the navigation that follows.
+      onClick={() => trackEvent("cta_click", { location })}
       data-cta-location={location}
       className={`s-btn group ${full ? "w-full" : ""} ${className}`.trim()}
     >

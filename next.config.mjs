@@ -16,14 +16,23 @@
 // gated to development only.
 const isDev = process.env.NODE_ENV !== "production"
 
+// Analytics hosts. PostHog is deliberately NOT listed: all of its traffic
+// (events + assets) is reverse-proxied through /ingest (rewrites below), so
+// it is same-origin and covered by 'self' - which also defeats ad blockers
+// that drop *.posthog.com by hostname. The Meta Pixel loads fbevents.js from
+// connect.facebook.net and beacons to www.facebook.com, so those two need
+// explicit entries or the pixel silently fails with a CSP violation.
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline' https://connect.facebook.net${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  "img-src 'self' data: blob: https://www.facebook.com",
   "media-src 'self'",
   "font-src 'self'",
-  `connect-src 'self'${isDev ? " ws:" : ""}`,
+  `connect-src 'self' https://www.facebook.com https://connect.facebook.net${isDev ? " ws:" : ""}`,
+  // PostHog's session recorder spawns a Web Worker from a blob URL even when
+  // the script itself is same-origin.
+  "worker-src 'self' blob:",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -51,6 +60,21 @@ const nextConfig = {
   images: { formats: ["image/avif", "image/webp"] },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }]
+  },
+  // Same-origin reverse proxy for PostHog - keeps analytics on 'self' in the
+  // CSP and survives ad blockers that filter by hostname.
+  async rewrites() {
+    return [
+      // More specific rule first.
+      {
+        source: "/ingest/static/:path*",
+        destination: "https://us-assets.i.posthog.com/static/:path*",
+      },
+      {
+        source: "/ingest/:path*",
+        destination: "https://us.i.posthog.com/:path*",
+      },
+    ]
   },
 }
 
