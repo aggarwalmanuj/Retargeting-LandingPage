@@ -5,6 +5,7 @@ import { siteUrl, siteName, pageTitle, pageDescription } from "./lib/site"
 import { FacebookPixel } from "@/components/facebook-pixel"
 import { CookieConsent } from "@/components/cookie-consent"
 import { LandingAnalytics } from "@/components/landing-analytics"
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -78,6 +79,7 @@ export default function RootLayout({
         <LandingAnalytics />
         {children}
         <CookieConsent />
+        <Analytics />
       </body>
     </html>
   )
